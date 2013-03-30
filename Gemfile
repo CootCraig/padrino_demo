@@ -16,7 +16,6 @@ gem 'rake'
 # Component requirements
 gem 'sass'
 gem 'haml'
-gem 'sqlite3'
 gem 'sequel'
 
 # Test requirements
