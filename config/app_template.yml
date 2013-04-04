@@ -1,0 +1,65 @@
+---
+zeromq_event_stream_interface: '0.0.0.0'
+zeromq_event_stream_port: 38007
+---
+log4r_config:
+  loggers:
+    - name      : base
+      level     : INFO
+      additive  : 'true'
+      outputters:
+        - file_info
+    - name      :  base::DatabaseCleaner
+      additive  : 'true'
+    - name      :  base::DoorEventGenerator
+      additive  : 'true'
+    - name      :  base::AppOptions
+      additive  : 'true'
+    - name      :  base::Celluloid
+      additive  : 'true'
+    - name      :  base::App
+      additive  : 'true'
+    - name      :  base::VerboseExample
+      level     : DEBUG
+      additive  : 'false'
+      outputters:
+        - file_debug
+  outputters:
+    - type     : StdoutOutputter
+      name     : console_info
+      level    : INFO
+      formatter:
+        date_pattern: '%Y-%m-%d %H:%M:%S'
+        pattern     : '%C %l %d :: %m'
+        type        : PatternFormatter
+    - type     : StdoutOutputter
+      name     : console_debug
+      level    : DEBUG
+      formatter:
+        date_pattern: '%Y-%m-%d %H:%M:%S'
+        pattern     : '%C %l %d :: %m'
+        type        : PatternFormatter
+    - type        : RollingFileOutputter
+      name        : file_info
+      level       : INFO
+      filename    : "/var/log/torquebox/padrino_demo.log"
+      maxsize     : 8388608
+      max_backups : 6
+      trunc       : 'false'
+      formatter   :
+        date_pattern: '%Y-%m-%d %H:%M:%S'
+        pattern     : '%C %l %d :: %m'
+        type        : PatternFormatter
+    - type        : RollingFileOutputter
+      name        : file_debug
+      level       : DEBUG
+      filename    : "/var/log/torquebox/padrino_demo.log"
+      maxsize     : 8388608
+      max_backups : 6
+      trunc       : 'false'
+      formatter   :
+        date_pattern: '%Y-%m-%d %H:%M:%S'
+        pattern     : '%C %l %d :: %m'
+        type        : PatternFormatter
+---
+

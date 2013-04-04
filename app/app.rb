@@ -7,6 +7,10 @@ module PadrinoDemo
 
     enable :sessions
 
+    get "/" do
+      "Hello World! Do you know what time it is?"
+    end
+
     ##
     # Caching support
     #
