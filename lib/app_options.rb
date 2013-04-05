@@ -1,6 +1,3 @@
-require 'rubygems'
-require 'bundler/setup'
-
 require 'pathname'
 require 'log4r'
 require 'log4r/yamlconfigurator'

@@ -1,4 +1,7 @@
-require 'app_options'
+require 'pathname'
+require 'log4r'
+require (Pathname.new(File.dirname(File.expand_path(__FILE__))) + '../../lib/app_options').to_s
+require (Pathname.new(File.dirname(File.expand_path(__FILE__))) + '../../models/event').to_s
 
 class DatabaseCleaner
   # optional, only needed if you pass config options to the job
